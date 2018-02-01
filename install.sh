@@ -15,7 +15,7 @@ then
         $get https://gmplib.org/download/gmp/gmp-6.1.2.tar.bz2
     fi
 
-    sum=`openssl sha256 gmp-5.0.5.tar.bz2 | awk -F' ' '{print $2}'`
+    sum=`openssl sha256 gmp-6.1.2.tar.bz2 | awk -F' ' '{print $2}'`
 
     if [[ $sum != "5275bb04f4863a13516b2f39392ac5e272f5e1bb8057b18aec1c9b79d73d8fb2" ]];
     then
