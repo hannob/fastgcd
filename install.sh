@@ -7,31 +7,31 @@ __exists() {
 get="fetch";
 ! __exists fetch && get="curl -OL";
 
-if [ ! -d gmp-5.0.5 ];
+if [ ! -d gmp-6.1.2 ];
 then
 
-    if [ ! -f gmp-5.0.5.tar.bz2 ];
+    if [ ! -f gmp-6.1.2.tar.bz2 ];
     then
-        $get ftp://ftp.gmplib.org/pub/gmp-5.0.5/gmp-5.0.5.tar.bz2
+        $get https://gmplib.org/download/gmp/gmp-6.1.2.tar.bz2
     fi
 
-    sum=`openssl sha1 gmp-5.0.5.tar.bz2 | awk -F' ' '{print $2}'`
+    sum=`openssl sha256 gmp-5.0.5.tar.bz2 | awk -F' ' '{print $2}'`
 
-    if [[ $sum != "12a662456033e21aed3e318aef4177f4000afe3b" ]];
+    if [[ $sum != "5275bb04f4863a13516b2f39392ac5e272f5e1bb8057b18aec1c9b79d73d8fb2" ]];
     then
         echo ''
         echo '=========================================='
-        echo 'ERROR: could not verify gmp-5.0.5.tar.bz2;'
+        echo 'ERROR: could not verify gmp-6.1.2.tar.bz2;'
         echo 'Downloaded over untrusted channel (non-https)'
         echo '=========================================='
         exit;
     fi
 
-    tar xf gmp-5.0.5.tar.bz2
+    tar xf gmp-6.1.2.tar.bz2
 fi
 
-cd gmp-5.0.5
-patch -p 1 < ../gmp-5.0.5.patch
+cd gmp-6.1.2
+patch -p 1 < ../gmp-6.1.2.patch
 mkdir ../gmp-patched
 ./configure --prefix=$PWD/../gmp-patched/
 make
