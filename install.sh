@@ -34,8 +34,8 @@ cd gmp-6.1.2
 patch -p 1 < ../gmp-6.1.2.patch
 mkdir ../gmp-patched
 ./configure --prefix=$PWD/../gmp-patched/
-make
-make install
+make -j4
+make install -j4
 cd ..
-make
+make -j4
 
