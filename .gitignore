@@ -3,7 +3,7 @@
 *
 # except for
 !fastgcd.c
-!gmp-6.1.2.patch
+!gmp-6.2.1.patch
 !input.moduli
 !install.sh
 !LICENSE
