@@ -1,4 +1,5 @@
 #!/bin/bash
+set -euo pipefail
 
 __exists() {
     which $1 1>/dev/null 2>&1
